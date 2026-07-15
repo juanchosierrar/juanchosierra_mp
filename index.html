@@ -408,7 +408,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;3214322340&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contacto&quot;,&quot;description&quot;:&quot;Número de WhatsApp con código de país, sin '+' (ej: 573001234567). Todos los botones y el chat flotante lo usan.&quot;}}">
 class Component extends DCLogic {
-  state = { enviado: false, nombre: '', email: '' };
+  state = { enviado: false, enviando: false, nombre: '', email: '' };
 
   waBase() {
     let num = (this.props.whatsappNumber ?? '573001234567').replace(/[^0-9]/g, '');
@@ -432,10 +432,30 @@ class Component extends DCLogic {
       newsletterEmail: this.state.email,
       onNombreChange: (e) => this.setState({ nombre: e.target.value }),
       onEmailChange: (e) => this.setState({ email: e.target.value }),
-      onNewsletterSubmit: (e) => {
+      onNewsletterSubmit: async (e) => {
         e.preventDefault();
-        if (!this.state.email) return;
-        this.setState({ enviado: true });
+        if (!this.state.email || this.state.enviando) return;
+        this.setState({ enviando: true });
+        try {
+          const r = await fetch('https://kliiibzabizzadhduhxw.supabase.co/rest/v1/suscriptores_web', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': 'sb_publishable__cQ8uYNpBBes0HYNn5hS2w_Ejag1f-1',
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({ nombre: this.state.nombre.trim() || null, email: this.state.email.trim().toLowerCase() })
+          });
+          // 409 = correo ya suscrito: lo tratamos como éxito
+          if (r.ok || r.status === 409) {
+            this.setState({ enviado: true });
+          } else {
+            alert('No se pudo enviar la suscripción. Intenta de nuevo en un momento.');
+          }
+        } catch (err) {
+          alert('No se pudo enviar. Revisa tu conexión e intenta de nuevo.');
+        }
+        this.setState({ enviando: false });
       }
     };
   }
