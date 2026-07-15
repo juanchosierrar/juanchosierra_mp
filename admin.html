@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel del Blog | Juancho Sierra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<style>
+  body { margin: 0; background: #101318; color: #F1EEE7; font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #E9A13B; text-decoration: none; }
+  ::selection { background: #E9A13B; color: #101318; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 40px 24px 100px; }
+  h1, h2 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -.02em; }
+  .card { background: #171B22; border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 30px; }
+  label { display: block; font-size: 13.5px; font-weight: 600; color: #C4C9D2; margin: 18px 0 8px; }
+  input[type=text], input[type=email], input[type=password], textarea, select {
+    width: 100%; box-sizing: border-box; background: #101318; border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px; padding: 13px 15px; font-size: 15.5px; color: #F1EEE7; font-family: 'Instrument Sans', sans-serif; outline: none;
+  }
+  input:focus, textarea:focus, select:focus, .editor:focus { border-color: #E9A13B; }
+  textarea { resize: vertical; min-height: 70px; }
+  .btn { display: inline-block; background: #E9A13B; color: #16130C; font-weight: 600; font-size: 15px; padding: 12px 24px;
+    border-radius: 999px; border: none; cursor: pointer; font-family: 'Instrument Sans', sans-serif; }
+  .btn:hover { background: #F5B65C; }
+  .btn.sec { background: transparent; border: 1px solid rgba(255,255,255,.18); color: #F1EEE7; }
+  .btn.sec:hover { border-color: #E9A13B; color: #E9A13B; }
+  .btn.peligro { background: transparent; border: 1px solid rgba(255,99,99,.4); color: #FF8A8A; }
+  .btn.chico { font-size: 13px; padding: 8px 14px; }
+  .toolbar { display: flex; gap: 6px; flex-wrap: wrap; background: #101318; border: 1px solid rgba(255,255,255,.12);
+    border-bottom: none; border-radius: 12px 12px 0 0; padding: 8px; }
+  .toolbar button { background: #171B22; color: #C4C9D2; border: 1px solid rgba(255,255,255,.1); border-radius: 8px;
+    padding: 7px 12px; font-size: 13.5px; cursor: pointer; font-family: 'Instrument Sans', sans-serif; }
+  .toolbar button:hover { color: #E9A13B; border-color: #E9A13B; }
+  .editor { min-height: 320px; background: #101318; border: 1px solid rgba(255,255,255,.12); border-radius: 0 0 12px 12px;
+    padding: 18px; font-size: 16px; line-height: 1.7; color: #E4E7EC; outline: none; }
+  .editor h2 { font-size: 24px; margin: 24px 0 10px; }
+  .editor h3 { font-size: 19px; margin: 20px 0 8px; }
+  .editor img { max-width: 100%; border-radius: 10px; }
+  .editor blockquote { border-left: 3px solid #E9A13B; margin: 16px 0; padding-left: 16px; color: #D8DCE3; font-style: italic; }
+  .fila { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .post-item { display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    background: #171B22; border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 16px 20px; margin-bottom: 12px; }
+  .chip { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+  .chip.pub { background: rgba(107,203,119,.15); color: #8FDB98; }
+  .chip.borrador { background: rgba(255,255,255,.08); color: #A6ADB8; }
+  .msg { padding: 12px 16px; border-radius: 12px; font-size: 14.5px; margin-top: 16px; display: none; }
+  .msg.ok { background: rgba(107,203,119,.1); border: 1px solid rgba(107,203,119,.35); color: #C9EDCD; }
+  .msg.error { background: rgba(255,99,99,.1); border: 1px solid rgba(255,99,99,.35); color: #FFC2C2; }
+  .oculto { display: none !important; }
+  .miniatura { max-height: 120px; border-radius: 10px; border: 1px solid rgba(255,255,255,.12); display: block; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ══════ LOGIN ══════ -->
+  <div id="vista-login">
+    <h1 style="font-size:30px">Panel del <span style="color:#E9A13B">Blog</span></h1>
+    <div class="card" style="max-width:440px">
+      <h2 style="font-size:20px;margin:0 0 6px">Iniciar sesión</h2>
+      <p style="font-size:14px;color:#8B92A0;margin:0">Acceso exclusivo del administrador.</p>
+      <label>Correo</label>
+      <input type="email" id="login-email" autocomplete="username" placeholder="tu@correo.com">
+      <label>Contraseña</label>
+      <input type="password" id="login-pass" autocomplete="current-password" placeholder="••••••••">
+      <div style="margin-top:22px"><button class="btn" id="btn-login">Entrar</button></div>
+      <div class="msg error" id="login-msg"></div>
+    </div>
+  </div>
+
+  <!-- ══════ LISTA ══════ -->
+  <div id="vista-lista" class="oculto">
+    <div class="fila" style="justify-content:space-between;margin-bottom:26px">
+      <h1 style="font-size:28px;margin:0">Mis <span style="color:#E9A13B">entradas</span></h1>
+      <div class="fila">
+        <button class="btn" id="btn-nueva">＋ Nueva entrada</button>
+        <a class="btn sec" href="Blog.dc.html" target="_blank" rel="noopener">Ver blog</a>
+        <button class="btn sec" id="btn-salir">Salir</button>
+      </div>
+    </div>
+    <div id="lista-posts"><p style="color:#8B92A0">Cargando…</p></div>
+  </div>
+
+  <!-- ══════ EDITOR ══════ -->
+  <div id="vista-editor" class="oculto">
+    <div class="fila" style="justify-content:space-between;margin-bottom:26px">
+      <h1 style="font-size:28px;margin:0" id="editor-titulo-vista">Nueva entrada</h1>
+      <button class="btn sec" id="btn-volver">← Volver</button>
+    </div>
+    <div class="card">
+      <label>Título *</label>
+      <input type="text" id="f-titulo" placeholder="El título de tu artículo">
+      <div class="fila">
+        <div style="flex:1;min-width:200px">
+          <label>Categoría</label>
+          <select id="f-categoria">
+            <option value="ia">IA &amp; Tech</option>
+            <option value="gis">GIS y Mapas</option>
+            <option value="video">Video Blog</option>
+          </select>
+        </div>
+      </div>
+      <label>Resumen (aparece en la lista del blog y en Google)</label>
+      <textarea id="f-resumen" placeholder="2 o 3 frases que inviten a leer el artículo"></textarea>
+      <label>Imagen de portada</label>
+      <input type="file" id="f-portada" accept="image/*" style="color:#A6ADB8;font-size:14px">
+      <img id="portada-prev" class="miniatura oculto" alt="portada">
+      <label>Contenido *</label>
+      <div class="toolbar">
+        <button data-cmd="bold" title="Negrita"><b>B</b></button>
+        <button data-cmd="italic" title="Cursiva"><i>I</i></button>
+        <button data-block="h2" title="Título de sección">Título</button>
+        <button data-block="h3" title="Subtítulo">Subtítulo</button>
+        <button data-block="p" title="Párrafo normal">Párrafo</button>
+        <button data-cmd="insertUnorderedList" title="Lista">• Lista</button>
+        <button data-block="blockquote" title="Cita">❝ Cita</button>
+        <button id="tb-enlace" title="Insertar enlace">🔗 Enlace</button>
+        <button id="tb-imagen" title="Insertar imagen">🖼 Imagen</button>
+      </div>
+      <div class="editor" id="f-contenido" contenteditable="true"></div>
+      <input type="file" id="img-inline" accept="image/*" class="oculto">
+      <div class="fila" style="margin-top:26px">
+        <button class="btn" id="btn-publicar">Publicar</button>
+        <button class="btn sec" id="btn-borrador">Guardar borrador</button>
+      </div>
+      <div class="msg" id="editor-msg"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const SB_URL = 'https://kliiibzabizzadhduhxw.supabase.co';
+const SB_KEY = 'sb_publishable__cQ8uYNpBBes0HYNn5hS2w_Ejag1f-1';
+const sb = window.supabase.createClient(SB_URL, SB_KEY);
+const CATS = { ia: 'IA & Tech', gis: 'GIS y Mapas', video: 'Video Blog' };
+const $ = (id) => document.getElementById(id);
+let editandoId = null;      // uuid del post en edición (null = nuevo)
+let slugActual = null;      // slug existente al editar
+let portadaUrl = null;      // url de portada vigente
+
+// ───── navegación entre vistas ─────
+function mostrar(vista) {
+  ['vista-login', 'vista-lista', 'vista-editor'].forEach(v => $(v).classList.add('oculto'));
+  $(vista).classList.remove('oculto');
+}
+function aviso(id, texto, tipo) {
+  const el = $(id);
+  el.textContent = texto;
+  el.className = 'msg ' + tipo;
+  el.style.display = 'block';
+  if (tipo === 'ok') setTimeout(() => { el.style.display = 'none'; }, 4000);
+}
+
+// ───── sesión ─────
+async function arrancar() {
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) { mostrar('vista-lista'); cargarLista(); }
+  else mostrar('vista-login');
+}
+$('btn-login').onclick = async () => {
+  const { error } = await sb.auth.signInWithPassword({ email: $('login-email').value.trim(), password: $('login-pass').value });
+  if (error) return aviso('login-msg', 'Credenciales incorrectas. Intenta de nuevo.', 'error');
+  mostrar('vista-lista'); cargarLista();
+};
+$('login-pass').addEventListener('keydown', e => { if (e.key === 'Enter') $('btn-login').click(); });
+$('btn-salir').onclick = async () => { await sb.auth.signOut(); mostrar('vista-login'); };
+
+// ───── lista de posts ─────
+async function cargarLista() {
+  const { data, error } = await sb.from('posts_blog')
+    .select('id,titulo,slug,categoria,publicado,created_at')
+    .order('created_at', { ascending: false });
+  const cont = $('lista-posts');
+  if (error) { cont.innerHTML = '<p style="color:#FF8A8A">Error cargando entradas. ¿Tu usuario es el correcto?</p>'; return; }
+  if (!data.length) { cont.innerHTML = '<p style="color:#8B92A0">Aún no tienes entradas. ¡Crea la primera!</p>'; return; }
+  cont.innerHTML = '';
+  data.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'post-item';
+    const fecha = new Date(p.created_at).toLocaleDateString('es-CO', { day: 'numeric', month: 'short', year: 'numeric' });
+    div.innerHTML =
+      '<div style="min-width:200px;flex:1">' +
+        '<div style="font-weight:600;font-size:16px"></div>' +
+        '<div style="font-size:13px;color:#8B92A0;margin-top:4px">' + (CATS[p.categoria] || '') + ' · ' + fecha + '</div>' +
+      '</div>' +
+      '<span class="chip ' + (p.publicado ? 'pub">Publicado' : 'borrador">Borrador') + '</span>' +
+      '<div class="fila">' +
+        '<button class="btn sec chico" data-a="editar">Editar</button>' +
+        '<button class="btn sec chico" data-a="toggle">' + (p.publicado ? 'Ocultar' : 'Publicar') + '</button>' +
+        (p.publicado ? '<a class="btn sec chico" target="_blank" rel="noopener" href="post.html?p=' + encodeURIComponent(p.slug) + '">Ver</a>' : '') +
+        '<button class="btn peligro chico" data-a="borrar">Eliminar</button>' +
+      '</div>';
+    div.querySelector('div > div').textContent = p.titulo;
+    div.querySelector('[data-a=editar]').onclick = () => abrirEditor(p.id);
+    div.querySelector('[data-a=toggle]').onclick = async () => {
+      await sb.from('posts_blog').update({ publicado: !p.publicado, updated_at: new Date().toISOString() }).eq('id', p.id);
+      cargarLista();
+    };
+    div.querySelector('[data-a=borrar]').onclick = async () => {
+      if (!confirm('¿Eliminar "' + p.titulo + '" definitivamente?')) return;
+      await sb.from('posts_blog').delete().eq('id', p.id);
+      cargarLista();
+    };
+    cont.appendChild(div);
+  });
+}
+$('btn-nueva').onclick = () => abrirEditor(null);
+$('btn-volver').onclick = () => { mostrar('vista-lista'); cargarLista(); };
+
+// ───── editor ─────
+async function abrirEditor(id) {
+  editandoId = id; slugActual = null; portadaUrl = null;
+  $('f-titulo').value = ''; $('f-resumen').value = ''; $('f-categoria').value = 'ia';
+  $('f-contenido').innerHTML = ''; $('f-portada').value = '';
+  $('portada-prev').classList.add('oculto');
+  $('editor-titulo-vista').textContent = id ? 'Editar entrada' : 'Nueva entrada';
+  if (id) {
+    const { data } = await sb.from('posts_blog').select('*').eq('id', id).single();
+    if (data) {
+      $('f-titulo').value = data.titulo;
+      $('f-categoria').value = data.categoria;
+      $('f-resumen').value = data.resumen || '';
+      $('f-contenido').innerHTML = data.contenido_html || '';
+      slugActual = data.slug;
+      portadaUrl = data.portada_url;
+      if (portadaUrl) { $('portada-prev').src = portadaUrl; $('portada-prev').classList.remove('oculto'); }
+    }
+  }
+  mostrar('vista-editor');
+}
+
+// barra de herramientas
+document.querySelectorAll('.toolbar button').forEach(b => {
+  b.addEventListener('mousedown', e => e.preventDefault()); // no perder foco/selección
+  if (b.dataset.cmd) b.onclick = () => document.execCommand(b.dataset.cmd, false, null);
+  if (b.dataset.block) b.onclick = () => document.execCommand('formatBlock', false, b.dataset.block);
+});
+$('tb-enlace').onclick = () => {
+  const url = prompt('Dirección del enlace (https://…):');
+  if (url) document.execCommand('createLink', false, url);
+};
+$('tb-imagen').onclick = () => $('img-inline').click();
+$('img-inline').onchange = async () => {
+  const f = $('img-inline').files[0];
+  if (!f) return;
+  aviso('editor-msg', 'Subiendo imagen…', 'ok');
+  const url = await subirImagen(f);
+  if (url) { $('f-contenido').focus(); document.execCommand('insertImage', false, url); }
+  $('img-inline').value = '';
+};
+
+async function subirImagen(archivo) {
+  const ext = (archivo.name.split('.').pop() || 'png').toLowerCase();
+  const ruta = Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.' + ext;
+  const { error } = await sb.storage.from('blog').upload(ruta, archivo, { cacheControl: '31536000' });
+  if (error) { aviso('editor-msg', 'No se pudo subir la imagen: ' + error.message, 'error'); return null; }
+  return sb.storage.from('blog').getPublicUrl(ruta).data.publicUrl;
+}
+
+function generarSlug(titulo) {
+  return titulo.toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+    .slice(0, 80) || ('post-' + Date.now());
+}
+
+async function guardar(publicar) {
+  const titulo = $('f-titulo').value.trim();
+  const contenido = $('f-contenido').innerHTML.trim();
+  if (!titulo) return aviso('editor-msg', 'Ponle un título a la entrada.', 'error');
+  if (!contenido || contenido === '<br>') return aviso('editor-msg', 'El contenido está vacío.', 'error');
+
+  // portada nueva (si eligió archivo)
+  const fPortada = $('f-portada').files[0];
+  if (fPortada) {
+    aviso('editor-msg', 'Subiendo portada…', 'ok');
+    const url = await subirImagen(fPortada);
+    if (url) portadaUrl = url;
+  }
+
+  const registro = {
+    titulo,
+    categoria: $('f-categoria').value,
+    resumen: $('f-resumen').value.trim() || null,
+    contenido_html: contenido,
+    portada_url: portadaUrl,
+    publicado: publicar,
+    updated_at: new Date().toISOString()
+  };
+
+  let resultado;
+  if (editandoId) {
+    resultado = await sb.from('posts_blog').update(registro).eq('id', editandoId).select().single();
+  } else {
+    registro.slug = generarSlug(titulo);
+    resultado = await sb.from('posts_blog').insert(registro).select().single();
+    if (resultado.error && resultado.error.code === '23505') { // slug duplicado
+      registro.slug += '-' + Date.now().toString(36);
+      resultado = await sb.from('posts_blog').insert(registro).select().single();
+    }
+  }
+  if (resultado.error) return aviso('editor-msg', 'No se pudo guardar: ' + resultado.error.message, 'error');
+  editandoId = resultado.data.id;
+  slugActual = resultado.data.slug;
+  aviso('editor-msg', publicar ? '✓ ¡Publicado! Ya está visible en tu blog.' : '✓ Borrador guardado.', 'ok');
+}
+$('btn-publicar').onclick = () => guardar(true);
+$('btn-borrador').onclick = () => guardar(false);
+
+// portada: vista previa local al elegir archivo
+$('f-portada').onchange = () => {
+  const f = $('f-portada').files[0];
+  if (f) { $('portada-prev').src = URL.createObjectURL(f); $('portada-prev').classList.remove('oculto'); }
+};
+
+arrancar();
+</script>
+</body>
+</html>

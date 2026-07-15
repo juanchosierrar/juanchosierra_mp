@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog | Juancho Sierra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #101318; color: #F1EEE7; font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #E9A13B; text-decoration: none; }
+  a:hover { color: #F5B65C; }
+  ::selection { background: #E9A13B; color: #101318; }
+  header { position: sticky; top: 0; z-index: 50; background: rgba(16,19,24,.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07); }
+  header nav { max-width: 1180px; margin: 0 auto; padding: 0 28px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 19px; color: #F1EEE7; letter-spacing: -.02em; }
+  .navlinks { display: flex; align-items: center; gap: 28px; font-size: 14.5px; font-weight: 500; flex-wrap: wrap; }
+  .navlinks a { color: #C4C9D2; }
+  .navlinks a:hover { color: #F1EEE7; }
+  .cta { background: #E9A13B; color: #16130C !important; font-weight: 600; font-size: 14.5px; padding: 10px 20px; border-radius: 999px; white-space: nowrap; }
+  .cta:hover { background: #F5B65C; }
+  main { max-width: 760px; margin: 0 auto; padding: 60px 28px 100px; }
+  .badge { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #E9A13B; margin-bottom: 14px; }
+  h1.titulo { font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 4.4vw, 46px); letter-spacing: -.02em; line-height: 1.12; margin: 0 0 14px; font-weight: 700; }
+  .fecha { font-size: 14px; color: #8B92A0; margin-bottom: 30px; }
+  .portada { width: 100%; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); margin: 0 0 34px; display: block; }
+  .contenido { font-size: 17px; line-height: 1.75; color: #C9CED8; }
+  .contenido h2 { font-family: 'Space Grotesk', sans-serif; font-size: 27px; letter-spacing: -.015em; color: #F1EEE7; margin: 40px 0 14px; font-weight: 700; }
+  .contenido h3 { font-family: 'Space Grotesk', sans-serif; font-size: 21px; color: #F1EEE7; margin: 32px 0 12px; font-weight: 600; }
+  .contenido p { margin: 0 0 18px; }
+  .contenido img { max-width: 100%; border-radius: 14px; border: 1px solid rgba(255,255,255,.1); }
+  .contenido blockquote { margin: 26px 0; padding: 4px 0 4px 20px; border-left: 3px solid #E9A13B; color: #D8DCE3; font-style: italic; }
+  .contenido ul, .contenido ol { margin: 0 0 18px; padding-left: 26px; }
+  .contenido li { margin-bottom: 8px; }
+  .contenido strong { color: #F1EEE7; }
+  .aviso { text-align: center; padding: 80px 20px; color: #A6ADB8; }
+  .volver { display: inline-block; margin-top: 44px; border: 1px solid rgba(255,255,255,.18); color: #F1EEE7; font-weight: 600; font-size: 15px; padding: 12px 24px; border-radius: 999px; }
+  .volver:hover { border-color: #E9A13B; color: #E9A13B; }
+  footer { border-top: 1px solid rgba(255,255,255,.07); background: #0C0F13; }
+  footer .inner { max-width: 1180px; margin: 0 auto; padding: 36px 28px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 13.5px; color: #6E7683; }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html" class="logo">Juancho<span style="color:#E9A13B">Sierra</span></a>
+    <div class="navlinks">
+      <a href="index.html">Inicio</a>
+      <a href="Blog.dc.html" style="color:#E9A13B">Blog</a>
+      <a href="index.html#contacto">Contacto</a>
+    </div>
+    <a class="cta" href="https://wa.me/573214322340?text=Hola%20Juancho%2C%20vengo%20del%20blog%20y%20quiero%20agendar%20una%20llamada." target="_blank" rel="noopener">Hablemos →</a>
+  </nav>
+</header>
+
+<main id="app">
+  <div class="aviso">Cargando artículo…</div>
+</main>
+
+<footer>
+  <div class="inner">
+    <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:#F1EEE7">Juancho<span style="color:#E9A13B">Sierra</span></div>
+    <div>Consultor en IA, Datos y GIS · Colombia → LATAM</div>
+    <div>© 2026 Juancho Sierra. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<script>
+(async () => {
+  const SB_URL = 'https://kliiibzabizzadhduhxw.supabase.co';
+  const SB_KEY = 'sb_publishable__cQ8uYNpBBes0HYNn5hS2w_Ejag1f-1';
+  const CATS = { ia: 'IA & Tech', gis: 'GIS y Mapas', video: 'Video Blog' };
+  const app = document.getElementById('app');
+  const slug = new URLSearchParams(location.search).get('p');
+
+  const sinPost = (msg) => {
+    app.innerHTML = '<div class="aviso"><h1 class="titulo" style="font-size:30px">' + msg + '</h1>' +
+      '<a class="volver" href="Blog.dc.html">← Volver al blog</a></div>';
+  };
+
+  if (!slug) return sinPost('Artículo no especificado');
+
+  try {
+    const r = await fetch(SB_URL + '/rest/v1/posts_blog?select=*&publicado=eq.true&slug=eq.' + encodeURIComponent(slug),
+      { headers: { apikey: SB_KEY } });
+    const rows = await r.json();
+    if (!r.ok || !rows.length) return sinPost('Este artículo no existe o ya no está disponible');
+
+    const p = rows[0];
+    document.title = p.titulo + ' | Blog de Juancho Sierra';
+    if (p.resumen) {
+      const m = document.createElement('meta');
+      m.name = 'description'; m.content = p.resumen;
+      document.head.appendChild(m);
+    }
+    const fecha = new Date(p.created_at).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' });
+    const esc = (t) => { const d = document.createElement('div'); d.textContent = t || ''; return d.innerHTML; };
+
+    app.innerHTML =
+      '<div class="badge">' + (CATS[p.categoria] || 'Blog') + '</div>' +
+      '<h1 class="titulo">' + esc(p.titulo) + '</h1>' +
+      '<div class="fecha">Por Juancho Sierra · ' + fecha + '</div>' +
+      (p.portada_url ? '<img class="portada" src="' + esc(p.portada_url) + '" alt="' + esc(p.titulo) + '" />' : '') +
+      '<div class="contenido">' + p.contenido_html + '</div>' +
+      '<a class="volver" href="Blog.dc.html">← Volver al blog</a>';
+  } catch (e) {
+    sinPost('No se pudo cargar el artículo. Revisa tu conexión.');
+  }
+})();
+</script>
+</body>
+</html>

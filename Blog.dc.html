@@ -55,12 +55,28 @@
     </div>
 
     <div style="display: flex; flex-direction: column; gap: 20px">
-      <div style="background: #171B22; border: 1px dashed rgba(233,161,59,.4); border-radius: 20px; padding: 40px; text-align: center">
-        <div style="font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #E9A13B; margin-bottom: 12px">Próximamente</div>
-        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin: 0 0 12px; font-weight: 600">Los primeros artículos están en camino</h3>
-        <p style="font-size: 15px; line-height: 1.6; color: #A6ADB8; max-width: 460px; margin: 0 auto">Mientras publico contenido escrito, encuentra tutoriales y casos reales cada semana en mi canal de YouTube.</p>
-        <a href="https://www.youtube.com/@JuanCarlosSierraR" target="_blank" rel="noopener" style="display: inline-block; margin-top: 22px; background: #E9A13B; color: #16130C; font-weight: 600; font-size: 14.5px; padding: 12px 24px; border-radius: 999px" style-hover="background: #F5B65C">Ver videos en YouTube →</a>
-      </div>
+      <sc-for list="{{ posts }}" as="post" hint-placeholder-count="2">
+        <a href="{{ post.url }}" style="display: grid; grid-template-columns: 200px 1fr; gap: 0; background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; overflow: hidden; color: inherit" style-hover="border-color: rgba(233,161,59,.45)">
+          <div style="background: #14181F url('{{ post.portada }}') center/cover no-repeat; min-height: 150px"></div>
+          <div style="padding: 24px 26px">
+            <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 10px">
+              <span style="font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #E9A13B">{{ post.catLabel }}</span>
+              <span style="font-size: 12.5px; color: #6E7683">{{ post.fecha }}</span>
+            </div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; margin: 0 0 8px; font-weight: 600; color: #F1EEE7">{{ post.titulo }}</h3>
+            <p style="font-size: 14.5px; line-height: 1.6; color: #A6ADB8; margin: 0">{{ post.resumen }}</p>
+            <span style="display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 600; color: #E9A13B">Leer artículo →</span>
+          </div>
+        </a>
+      </sc-for>
+      <sc-if value="{{ sinPosts }}" hint-placeholder-val="{{ false }}">
+        <div style="background: #171B22; border: 1px dashed rgba(233,161,59,.4); border-radius: 20px; padding: 40px; text-align: center">
+          <div style="font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #E9A13B; margin-bottom: 12px">Próximamente</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin: 0 0 12px; font-weight: 600">Los primeros artículos están en camino</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #A6ADB8; max-width: 460px; margin: 0 auto">Mientras publico contenido escrito, encuentra tutoriales y casos reales cada semana en mi canal de YouTube.</p>
+          <a href="https://www.youtube.com/@JuanCarlosSierraR" target="_blank" rel="noopener" style="display: inline-block; margin-top: 22px; background: #E9A13B; color: #16130C; font-weight: 600; font-size: 14.5px; padding: 12px 24px; border-radius: 999px" style-hover="background: #F5B65C">Ver videos en YouTube →</a>
+        </div>
+      </sc-if>
     </div>
   </div>
 
@@ -96,7 +112,16 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { activa: 'todos' };
+  state = { activa: 'todos', rows: [], cargando: true };
+
+  componentDidMount() {
+    fetch('https://kliiibzabizzadhduhxw.supabase.co/rest/v1/posts_blog?select=titulo,slug,categoria,resumen,portada_url,created_at&publicado=eq.true&order=created_at.desc', {
+      headers: { apikey: 'sb_publishable__cQ8uYNpBBes0HYNn5hS2w_Ejag1f-1' }
+    })
+      .then(r => r.ok ? r.json() : [])
+      .then(rows => this.setState({ rows: Array.isArray(rows) ? rows : [], cargando: false }))
+      .catch(() => this.setState({ cargando: false }));
+  }
 
   renderVals() {
     const num = '573214322340';
@@ -108,6 +133,7 @@ class Component extends DCLogic {
       { key: 'gis', label: 'GIS y Mapas' },
       { key: 'video', label: 'Video Blog' }
     ];
+    const etiquetas = { ia: 'IA & Tech', gis: 'GIS y Mapas', video: 'Video Blog' };
     const categorias = items.map(it => ({
       label: it.label,
       onClick: () => this.setState({ activa: it.key }),
@@ -116,7 +142,17 @@ class Component extends DCLogic {
       border: this.state.activa === it.key ? '#E9A13B' : 'rgba(255,255,255,.1)'
     }));
 
-    return { waLink, categorias };
+    const visibles = this.state.rows.filter(p => this.state.activa === 'todos' || p.categoria === this.state.activa);
+    const posts = visibles.map(p => ({
+      titulo: p.titulo,
+      resumen: p.resumen || '',
+      url: 'post.html?p=' + encodeURIComponent(p.slug),
+      portada: p.portada_url || '',
+      catLabel: etiquetas[p.categoria] || 'Blog',
+      fecha: new Date(p.created_at).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })
+    }));
+
+    return { waLink, categorias, posts, sinPosts: !this.state.cargando && posts.length === 0 };
   }
 }
 </script>
