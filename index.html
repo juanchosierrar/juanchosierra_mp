@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Juancho Sierra | Consultor y Formador en Inteligencia Artificial, Datos y GIS</title>
+  <meta name="description" content="Juancho Sierra: consultor y formador en Inteligencia Artificial Generativa, dashboards de datos y sistemas GIS. Formación corporativa en IA, consultoría 1:1 y desarrollo de soluciones de datos en Colombia y LATAM." />
+  <meta name="keywords" content="Juancho Sierra, formación en IA, Inteligencia Artificial Generativa, consultor IA Colombia, dashboards Power BI, GIS, geomarketing, cursos de IA en español" />
+  <meta property="og:title" content="Juancho Sierra | IA para las personas, datos para las decisiones" />
+  <meta property="og:description" content="Formación en IA Generativa, dashboards estratégicos y soluciones GIS. Consultoría y cursos en español." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="img/perfil.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://juanchosierrar.com/#person",
+        "name": "Juancho Sierra",
+        "url": "https://juanchosierrar.com/",
+        "image": "https://juanchosierrar.com/img/perfil.png",
+        "jobTitle": "Consultor y Formador en Inteligencia Artificial, Datos y GIS",
+        "email": "gerencia@juanchosierrar.com",
+        "address": { "@type": "PostalAddress", "addressCountry": "CO" },
+        "knowsAbout": ["Inteligencia Artificial Generativa", "Formación en IA", "Dashboards de datos", "Power BI", "Sistemas de Información Geográfica", "Geomarketing", "Agricultura de precisión", "Drones"],
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Universidad Politécnica de Catalunya" },
+          { "@type": "CollegeOrUniversity", "name": "Universidad Tecnológica de Pereira" }
+        ],
+        "sameAs": [
+          "https://www.youtube.com/@JuanCarlosSierraR",
+          "https://www.linkedin.com/in/juanchosierrarseoysemygis/",
+          "https://x.com/juanchosierrar",
+          "https://www.tiktok.com/@juanchosierrar",
+          "https://www.facebook.com/juanchosierrar"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "name": "Juancho Sierra — Consultoría en IA, Datos y GIS",
+        "url": "https://juanchosierrar.com/",
+        "founder": { "@id": "https://juanchosierrar.com/#person" },
+        "areaServed": "LATAM",
+        "makesOffer": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formación corporativa en IA Generativa" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoría y mentoría 1:1 en IA" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dashboards e inteligencia de negocios" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aplicativos Web/GIS y captura de datos en campo" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agentes de IA como servicio" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo de SaaS a la medida" } }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Qué servicios ofrece Juancho Sierra?", "acceptedAnswer": { "@type": "Answer", "text": "Formación corporativa en IA Generativa, consultoría y mentoría 1:1, dashboards de datos (Power BI), aplicativos Web/GIS, agentes de IA como servicio y desarrollo de SaaS a la medida." } },
+          { "@type": "Question", "name": "¿Las formaciones en IA son para personas sin conocimientos técnicos?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El enfoque es democratizar la IA Generativa: programas prácticos para usuarios comunes y equipos de trabajo, sin requisitos de programación." } },
+          { "@type": "Question", "name": "¿Trabaja con empresas fuera de Colombia?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, atiende clientes en toda LATAM de forma remota, con más de una década de experiencia como Experto en Productos Google para LATAM." } },
+          { "@type": "Question", "name": "¿Cómo agendar una llamada con Juancho Sierra?", "acceptedAnswer": { "@type": "Answer", "text": "Escribiendo por WhatsApp desde juanchosierrar.com o al correo gerencia@juanchosierrar.com." } }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #101318; color: #F1EEE7; font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #E9A13B; text-decoration: none; }
+    a:hover { color: #F5B65C; }
+    ::selection { background: #E9A13B; color: #101318; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+  </style>
+</helmet>
+
+<!-- ══════════ NAV ══════════ -->
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(16,19,24,.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07)">
+  <nav style="max-width: 1180px; margin: 0 auto; padding: 0 28px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+    <a href="#inicio" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 19px; color: #F1EEE7; letter-spacing: -.02em">Juancho<span style="color: #E9A13B">Sierra</span></a>
+    <div style="display: flex; align-items: center; gap: 24px; font-size: 14.5px; font-weight: 500; flex-wrap: wrap; overflow: hidden; max-height: 68px">
+      <a href="#servicios" style="color: #C4C9D2" style-hover="color: #F1EEE7">Servicios</a>
+      <a href="#academia" style="color: #C4C9D2" style-hover="color: #F1EEE7">Academia</a>
+      <a href="#casos" style="color: #C4C9D2" style-hover="color: #F1EEE7">Casos</a>
+      <a href="#sobre-mi" style="color: #C4C9D2" style-hover="color: #F1EEE7">Sobre mí</a>
+      <a href="#comunidad" style="color: #C4C9D2" style-hover="color: #F1EEE7">Comunidad</a>
+      <a href="Blog.dc.html" style="color: #C4C9D2" style-hover="color: #F1EEE7">Blog</a>
+    </div>
+    <a href="{{ waLink }}" target="_blank" rel="noopener" style="background: #E9A13B; color: #16130C; font-weight: 600; font-size: 14.5px; padding: 10px 20px; border-radius: 999px; white-space: nowrap" style-hover="background: #F5B65C">Hablemos →</a>
+  </nav>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="inicio" data-screen-label="Hero" style="position: relative; overflow: hidden">
+  <div style="position: absolute; inset: 0; background: radial-gradient(900px 500px at 75% 20%, rgba(233,161,59,.13), transparent 60%), radial-gradient(700px 500px at 10% 90%, rgba(90,130,200,.08), transparent 60%)"></div>
+  <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 88px 28px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: center">
+    <div style="animation: fadeUp .7s ease both">
+      <div style="display: inline-flex; align-items: center; gap: 9px; border: 1px solid rgba(233,161,59,.35); background: rgba(233,161,59,.08); color: #F0C67E; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; margin-bottom: 26px">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: #E9A13B; animation: pulseDot 2s infinite"></span>
+        Consultor · Formador en IA · Datos · GIS
+      </div>
+      <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(40px, 5.2vw, 62px); line-height: 1.06; letter-spacing: -.03em; margin: 0 0 22px; font-weight: 700">IA para las personas,<br /><span style="color: #E9A13B">datos</span> para las decisiones.</h1>
+      <p style="font-size: 18.5px; line-height: 1.65; color: #B9BFC9; max-width: 520px; margin: 0 0 34px">Formo equipos y personas en <strong style="color: #F1EEE7">IA Generativa aplicada</strong>, y construyo los dashboards y aplicativos GIS que convierten datos complejos en decisiones claras. Sin humo: productividad real.</p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px">
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="background: #E9A13B; color: #16130C; font-weight: 600; font-size: 16px; padding: 15px 28px; border-radius: 999px" style-hover="background: #F5B65C">Agendar una llamada</a>
+        <a href="https://www.youtube.com/@JuanCarlosSierraR" target="_blank" rel="noopener" style="border: 1px solid rgba(255,255,255,.18); color: #F1EEE7; font-weight: 600; font-size: 16px; padding: 15px 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px" style-hover="border-color: #E9A13B; color: #E9A13B">▶ Ver contenido gratis</a>
+      </div>
+      <div style="display: flex; gap: 36px; flex-wrap: wrap">
+        <div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #F1EEE7">18+ años</div>
+          <div style="font-size: 13.5px; color: #8B92A0">en datos y GIS</div>
+        </div>
+        <div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #F1EEE7">3.500+</div>
+          <div style="font-size: 13.5px; color: #8B92A0">suscriptores en YouTube</div>
+        </div>
+        <div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #F1EEE7">13 años</div>
+          <div style="font-size: 13.5px; color: #8B92A0">Experto Productos Google LATAM</div>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative; animation: fadeUp .7s .15s ease both">
+      <div style="position: absolute; inset: -18px -18px auto auto; width: 120px; height: 120px; border-radius: 24px; background: rgba(233,161,59,.14); z-index: 0"></div>
+      <img src="img/perfil.png" alt="Juancho Sierra, consultor en Inteligencia Artificial, datos y GIS" style="position: relative; z-index: 1; width: 100%; max-width: 400px; display: block; margin: 0 auto; border-radius: 24px; border: 1px solid rgba(255,255,255,.1); box-shadow: 0 30px 80px rgba(0,0,0,.5)" />
+      <div style="position: absolute; z-index: 2; bottom: 22px; left: 6px; background: rgba(22,26,33,.92); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 12px 18px; font-size: 14px; display: flex; align-items: center; gap: 10px">
+        <span style="width: 9px; height: 9px; border-radius: 50%; background: #6BCB77"></span>
+        <span style="color: #D8DCE3">Disponible para consultoría y formación</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICIOS ══════════ -->
+<section id="servicios" data-screen-label="Servicios" style="border-top: 1px solid rgba(255,255,255,.06)">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 96px 28px">
+    <div style="max-width: 640px; margin-bottom: 52px">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #E9A13B; margin-bottom: 14px">Servicios</div>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 3.6vw, 42px); letter-spacing: -.02em; line-height: 1.12; margin: 0 0 16px; font-weight: 700">Del dato a la decisión, de la curiosidad al dominio de la IA</h2>
+      <p style="font-size: 17px; line-height: 1.6; color: #B9BFC9; margin: 0">Seis formas de trabajar juntos. Sin precios inflados ni promesas vacías: agendamos una llamada y definimos lo que tu equipo necesita.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; padding: 34px" style-hover="border-color: rgba(233,161,59,.45)">
+        <div style="font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #E9A13B; margin-bottom: 14px">Más solicitado</div>
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0 0 12px; font-weight: 600">Formación corporativa en IA Generativa</h3>
+        <p style="font-size: 15.5px; line-height: 1.6; color: #A6ADB8; margin: 0 0 22px">Talleres prácticos para equipos: ChatGPT, ecosistema Gemini, agentes y automatizaciones aplicados a los flujos reales de tu empresa. Medimos productividad, no asistencia.</p>
+        <a href="{{ waLinkFormacion }}" target="_blank" rel="noopener" style="font-weight: 600; font-size: 15px">Cotizar formación →</a>
+      </div>
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; padding: 34px" style-hover="border-color: rgba(233,161,59,.45)">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0 0 12px; font-weight: 600">Consultoría y mentoría 1:1</h3>
+        <p style="font-size: 15.5px; line-height: 1.6; color: #A6ADB8; margin: 0 0 22px">Sesiones personalizadas para integrar IA en tu trabajo o negocio: diagnóstico, hoja de ruta y acompañamiento hasta que lo uses con autonomía.</p>
+        <a href="{{ waLinkMentoria }}" target="_blank" rel="noopener" style="font-weight: 600; font-size: 15px">Agendar sesión →</a>
+      </div>
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; padding: 34px" style-hover="border-color: rgba(233,161,59,.45)">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0 0 12px; font-weight: 600">Dashboards e inteligencia de negocios</h3>
+        <p style="font-size: 15.5px; line-height: 1.6; color: #A6ADB8; margin: 0 0 22px">Tableros de mando estratégicos (Power BI y web) para empresas e instituciones: tus datos, visualizados para decidir en minutos, no en reuniones.</p>
+        <a href="{{ waLinkDashboards }}" target="_blank" rel="noopener" style="font-weight: 600; font-size: 15px">Ver cómo trabajo →</a>
+      </div>
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; padding: 34px" style-hover="border-color: rgba(233,161,59,.45)">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0 0 12px; font-weight: 600">Aplicativos Web/GIS y datos en campo</h3>
+        <p style="font-size: 15.5px; line-height: 1.6; color: #A6ADB8; margin: 0 0 22px">Geoportales, apps de recolección en terreno, geomarketing y agricultura de precisión con drones. 18 años convirtiendo territorio en información.</p>
+        <a href="{{ waLinkGis }}" target="_blank" rel="noopener" style="font-weight: 600; font-size: 15px">Consultar proyecto →</a>
+      </div>
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; padding: 34px" style-hover="border-color: rgba(233,161,59,.45)">
+        <div style="font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #E9A13B; margin-bottom: 14px">Nuevo</div>
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0 0 12px; font-weight: 600">Agentes de IA como servicio</h3>
+        <p style="font-size: 15.5px; line-height: 1.6; color: #A6ADB8; margin: 0 0 22px">Diseño y despliegue agentes que trabajan por ti: atención al cliente, calificación de leads, gestión de agenda y automatización de procesos internos, conectados a tus herramientas.</p>
+        <a href="{{ waLinkAgentes }}" target="_blank" rel="noopener" style="font-weight: 600; font-size: 15px">Explorar agentes →</a>
+      </div>
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; padding: 34px" style-hover="border-color: rgba(233,161,59,.45)">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0 0 12px; font-weight: 600">SaaS a la medida</h3>
+        <p style="font-size: 15.5px; line-height: 1.6; color: #A6ADB8; margin: 0 0 22px">Convierto tu proceso de negocio en un producto web: plataformas con usuarios, datos e IA integrada, listas para operar y escalar sin depender de licencias de terceros.</p>
+        <a href="{{ waLinkSaas }}" target="_blank" rel="noopener" style="font-weight: 600; font-size: 15px">Consultar desarrollo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ACADEMIA ══════════ -->
+<section id="academia" data-screen-label="Academia" style="background: #14181F; border-top: 1px solid rgba(255,255,255,.06)">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 96px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: center">
+    <div>
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #E9A13B; margin-bottom: 14px">Academia</div>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 3.6vw, 42px); letter-spacing: -.02em; line-height: 1.12; margin: 0 0 16px; font-weight: 700">Aprende IA en español, sin tecnicismos</h2>
+      <p style="font-size: 17px; line-height: 1.65; color: #B9BFC9; margin: 0 0 28px">Estoy construyendo la <strong style="color: #F1EEE7">Academia de IA</strong>: cursos grabados, paso a paso y en español. Mientras tanto, todo mi contenido gratuito vive en YouTube — y puedes recibir la guía de inicio directo en tu correo.</p>
+      <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px">
+        <div style="display: flex; gap: 14px; align-items: flex-start">
+          <span style="color: #E9A13B; font-weight: 700; font-size: 17px">01</span>
+          <div><strong style="font-size: 16px">Cursos grabados</strong><span style="display: block; font-size: 14.5px; color: #8B92A0">IA Generativa desde cero, prompting y automatizaciones — próximamente</span></div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: flex-start">
+          <span style="color: #E9A13B; font-weight: 700; font-size: 17px">02</span>
+          <div><strong style="font-size: 16px">Canal de YouTube</strong><span style="display: block; font-size: 14.5px; color: #8B92A0">Tutoriales y casos reales, gratis cada semana</span></div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: flex-start">
+          <span style="color: #E9A13B; font-weight: 700; font-size: 17px">03</span>
+          <div><strong style="font-size: 16px">Guía gratuita de inicio en IA</strong><span style="display: block; font-size: 14.5px; color: #8B92A0">Suscríbete y recíbela en tu correo al lanzarla</span></div>
+        </div>
+      </div>
+      <a href="https://www.youtube.com/@JuanCarlosSierraR" target="_blank" rel="noopener" style="background: #E9A13B; color: #16130C; font-weight: 600; font-size: 15.5px; padding: 14px 26px; border-radius: 999px; display: inline-block" style-hover="background: #F5B65C">Ir al canal de YouTube →</a>
+    </div>
+    <div style="background: #171B22; border: 1px solid rgba(255,255,255,.08); border-radius: 24px; padding: 40px">
+      <div style="display: inline-block; background: rgba(107,203,119,.12); color: #8FDB98; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; margin-bottom: 18px">Lista de espera abierta</div>
+      <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0 0 10px; font-weight: 600">Sé el primero en entrar</h3>
+      <p style="font-size: 15px; line-height: 1.6; color: #A6ADB8; margin: 0 0 24px">Déjame tu correo y te aviso cuando abra la academia y la comunidad. Recibirás también la guía gratuita de inicio en IA.</p>
+      <sc-if value="{{ newsletterEnviado }}" hint-placeholder-val="{{ false }}">
+        <div style="background: rgba(107,203,119,.1); border: 1px solid rgba(107,203,119,.35); border-radius: 14px; padding: 18px 20px; font-size: 15.5px; color: #C9EDCD">✓ ¡Listo! Te escribiré pronto con la guía y las novedades.</div>
+      </sc-if>
+      <sc-if value="{{ newsletterNoEnviado }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ onNewsletterSubmit }}" style="display: flex; flex-direction: column; gap: 12px">
+          <input type="text" value="{{ newsletterNombre }}" onChange="{{ onNombreChange }}" placeholder="Tu nombre" style="background: #101318; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 14px 16px; font-size: 15.5px; color: #F1EEE7; font-family: 'Instrument Sans', sans-serif; outline: none" style-focus="border-color: #E9A13B" />
+          <input type="email" required="{{ true }}" value="{{ newsletterEmail }}" onChange="{{ onEmailChange }}" placeholder="tu@correo.com" style="background: #101318; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 14px 16px; font-size: 15.5px; color: #F1EEE7; font-family: 'Instrument Sans', sans-serif; outline: none" style-focus="border-color: #E9A13B" />
+          <button type="submit" style="background: #E9A13B; color: #16130C; font-weight: 600; font-size: 15.5px; padding: 14px; border-radius: 12px; border: none; cursor: pointer; font-family: 'Instrument Sans', sans-serif" style-hover="background: #F5B65C">Unirme a la lista de espera</button>
+        </form>
+        <p style="font-size: 12.5px; color: #6E7683; margin: 12px 0 0">Cero spam. Solo avisos de lanzamiento y recursos útiles.</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CASOS / PORTAFOLIO ══════════ -->
+<section id="casos" data-screen-label="Casos" style="border-top: 1px solid rgba(255,255,255,.06)">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 96px 28px">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px">
+      <div style="max-width: 560px">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #E9A13B; margin-bottom: 14px">Casos de trabajo</div>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 3.6vw, 42px); letter-spacing: -.02em; line-height: 1.12; margin: 0; font-weight: 700">Proyectos que hablan por mí</h2>
+      </div>
+      <a href="{{ waLink }}" target="_blank" rel="noopener" style="font-weight: 600; font-size: 15px; white-space: nowrap">¿Un proyecto similar? Hablemos →</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; overflow: hidden">
+        <div style="height: 240px"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="caso-formacion" shape="rect" src="img/caso-formacion.png" placeholder="Foto de un taller de IA (arrastra aquí)" hint-size="100%,240px"></x-import></div>
+        <div style="padding: 26px 28px 30px">
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #E9A13B; margin-bottom: 10px">Formación IA</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin: 0 0 8px; font-weight: 600">Programas de IA Generativa para equipos</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #A6ADB8; margin: 0">Diseño e imparto formaciones a la medida: del prompt básico a agentes y automatizaciones en el flujo de trabajo real.</p>
+        </div>
+      </div>
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; overflow: hidden">
+        <div style="height: 240px"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="caso-dashboard" shape="rect" src="img/caso-dashboard.png" placeholder="Captura de un dashboard real (arrastra aquí)" hint-size="100%,240px"></x-import></div>
+        <div style="padding: 26px 28px 30px">
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #E9A13B; margin-bottom: 10px">Business Intelligence</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin: 0 0 8px; font-weight: 600">Dashboards estratégicos a la medida</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #A6ADB8; margin: 0">Tableros de mando para dirección: indicadores clave, visualización clara y datos siempre actualizados.</p>
+        </div>
+      </div>
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; overflow: hidden">
+        <div style="height: 240px"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="caso-gis" shape="rect" src="img/caso-gis.png" placeholder="Captura de geoportal o app de campo (arrastra aquí)" hint-size="100%,240px"></x-import></div>
+        <div style="padding: 26px 28px 30px">
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #E9A13B; margin-bottom: 10px">GIS & Campo</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin: 0 0 8px; font-weight: 600">Geoportales y recolección en terreno</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #A6ADB8; margin: 0">Aplicativos web/map para capturar, gestionar y visualizar información georreferenciada, incluso sin conexión.</p>
+        </div>
+      </div>
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; overflow: hidden">
+        <div style="height: 240px"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="caso-drones" shape="rect" src="img/caso-drones.png" placeholder="Foto de vuelo de dron / agricultura (arrastra aquí)" hint-size="100%,240px"></x-import></div>
+        <div style="padding: 26px 28px 30px">
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #E9A13B; margin-bottom: 10px">AgroTech · Drones</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin: 0 0 8px; font-weight: 600">Agricultura y cartografía de precisión</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #A6ADB8; margin: 0">Vuelos profesionales con drones y GNSS de alta precisión, en alianza con SierraFly y Geosub.</p>
+        </div>
+      </div>
+      <div style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; overflow: hidden">
+        <div style="height: 240px"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="caso-agentes" shape="rect" placeholder="Captura de panel de agentes IA (arrastra aquí)" hint-size="100%,240px"></x-import></div>
+        <div style="padding: 26px 28px 30px">
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #E9A13B; margin-bottom: 10px">AI Agents as a Service</div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 21px; margin: 0 0 8px; font-weight: 600">Agentes de IA operando 24/7</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #A6ADB8; margin: 0">Agentes conversacionales y de automatización que atienden clientes, califican leads y ejecutan procesos sin depender de un equipo humano.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SOBRE MÍ ══════════ -->
+<section id="sobre-mi" data-screen-label="Sobre mí" style="background: #14181F; border-top: 1px solid rgba(255,255,255,.06)">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 96px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; align-items: start">
+    <div style="position: sticky; top: 100px">
+      <img src="img/perfil.png" alt="Retrato de Juancho Sierra" style="width: 100%; max-width: 340px; border-radius: 20px; border: 1px solid rgba(255,255,255,.1); display: block" />
+      <blockquote style="margin: 22px 0 0; padding: 0 0 0 18px; border-left: 3px solid #E9A13B; font-size: 16.5px; line-height: 1.55; color: #D8DCE3; font-style: italic">"Transformo datos complejos en tableros claros, y usuarios curiosos en expertos de IA."</blockquote>
+    </div>
+    <div>
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #E9A13B; margin-bottom: 14px">Sobre mí</div>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 3.6vw, 42px); letter-spacing: -.02em; line-height: 1.12; margin: 0 0 20px; font-weight: 700">18 años leyendo el territorio, ahora enseñando el futuro</h2>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #B9BFC9; margin: 0 0 16px">Soy administrador ambiental con maestría en Sistemas de Información Geográfica (Universidad Politécnica de Catalunya). Desde 2006 convierto datos georreferenciados en decisiones: cartografía de precisión, geomarketing comercial y político, agricultura de precisión con drones.</p>
+      <p style="font-size: 16.5px; line-height: 1.7; color: #B9BFC9; margin: 0 0 36px">Durante 13 años fui <strong style="color: #F1EEE7">Experto en Productos Google para LATAM</strong>, formando y ayudando a miles de usuarios. Hoy aplico esa misma vocación a la IA Generativa: mi enfoque no es la tecnología por la tecnología, sino <strong style="color: #F1EEE7">que las personas la usen de verdad</strong>.</p>
+      <div style="display: flex; flex-direction: column; gap: 0">
+        <div style="display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.08)">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: #E9A13B">2022 — Hoy</div>
+          <div><strong>Consultor y formador en IA</strong><span style="display: block; font-size: 14.5px; color: #8B92A0">Formación corporativa, automatización y dashboards estratégicos</span></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.08)">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: #E9A13B">2011 — 2024</div>
+          <div><strong>Experto Productos Google LATAM</strong><span style="display: block; font-size: 14.5px; color: #8B92A0">Formador, evangelizador y colaborador principal de los foros de ayuda</span></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08)">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: #E9A13B">2006 — Hoy</div>
+          <div><strong>Especialista GIS y datos</strong><span style="display: block; font-size: 14.5px; color: #8B92A0">MSc. GIS (UPC) · Geomarketing · Agricultura de precisión · Drones</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIOS ══════════ -->
+<section id="testimonios" data-screen-label="Testimonios" style="border-top: 1px solid rgba(255,255,255,.06)">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 96px 28px">
+    <div style="font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #E9A13B; margin-bottom: 14px">Lo que dicen</div>
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 3.6vw, 42px); letter-spacing: -.02em; margin: 0 0 48px; font-weight: 700">Resultados, en palabras de otros</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+      <figure style="margin: 0; background: #171B22; border: 1px dashed rgba(233,161,59,.4); border-radius: 20px; padding: 30px">
+        <blockquote style="margin: 0 0 20px; font-size: 15.5px; line-height: 1.65; color: #B9BFC9">"Espacio reservado para el testimonio de un cliente de formación corporativa: qué problema tenía su equipo y qué cambió después del taller."</blockquote>
+        <figcaption style="font-size: 14px"><strong style="color: #F1EEE7">Nombre · Cargo</strong><span style="display: block; color: #6E7683">Empresa — Formación en IA</span></figcaption>
+      </figure>
+      <figure style="margin: 0; background: #171B22; border: 1px dashed rgba(233,161,59,.4); border-radius: 20px; padding: 30px">
+        <blockquote style="margin: 0 0 20px; font-size: 15.5px; line-height: 1.65; color: #B9BFC9">"Espacio reservado para el testimonio de un cliente de dashboard: qué decisión pudo tomar gracias a ver sus datos claros."</blockquote>
+        <figcaption style="font-size: 14px"><strong style="color: #F1EEE7">Nombre · Cargo</strong><span style="display: block; color: #6E7683">Empresa — Dashboard BI</span></figcaption>
+      </figure>
+      <figure style="margin: 0; background: #171B22; border: 1px dashed rgba(233,161,59,.4); border-radius: 20px; padding: 30px">
+        <blockquote style="margin: 0 0 20px; font-size: 15.5px; line-height: 1.65; color: #B9BFC9">"Espacio reservado para el testimonio de un alumno o mentoreado: qué logró hacer con IA que antes no podía."</blockquote>
+        <figcaption style="font-size: 14px"><strong style="color: #F1EEE7">Nombre · Cargo</strong><span style="display: block; color: #6E7683">Mentoría 1:1</span></figcaption>
+      </figure>
+    </div>
+    <p style="font-size: 13px; color: #6E7683; margin: 18px 0 0; font-family: monospace">// Bordes punteados = placeholders. Reemplázalos con testimonios reales apenas los tengas.</p>
+  </div>
+</section>
+
+<!-- ══════════ COMUNIDAD ══════════ -->
+<section id="comunidad" data-screen-label="Comunidad" style="background: #14181F; border-top: 1px solid rgba(255,255,255,.06)">
+  <div style="max-width: 900px; margin: 0 auto; padding: 96px 28px; text-align: center">
+    <div style="display: inline-block; background: rgba(233,161,59,.1); border: 1px solid rgba(233,161,59,.35); color: #F0C67E; font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; margin-bottom: 22px">Próximamente</div>
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 3.8vw, 44px); letter-spacing: -.02em; line-height: 1.1; margin: 0 0 18px; font-weight: 700">La Comunidad de IA en español está en camino</h2>
+    <p style="font-size: 17px; line-height: 1.65; color: #B9BFC9; max-width: 640px; margin: 0 auto 36px">Un espacio para compartir ideas, proyectos y ejemplos reales de IA aplicada: retos mensuales, sesiones en vivo y acceso directo a mí. Hoy la conversación empieza en YouTube — la comunidad abre cuando seamos suficientes para que valga la pena.</p>
+    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap">
+      <a href="https://www.youtube.com/@JuanCarlosSierraR" target="_blank" rel="noopener" style="background: #E9A13B; color: #16130C; font-weight: 600; font-size: 15.5px; padding: 14px 26px; border-radius: 999px" style-hover="background: #F5B65C">Súmate en YouTube</a>
+      <a href="#academia" style="border: 1px solid rgba(255,255,255,.18); color: #F1EEE7; font-weight: 600; font-size: 15.5px; padding: 14px 26px; border-radius: 999px" style-hover="border-color: #E9A13B; color: #E9A13B">Entrar a la lista de espera</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section id="faq" data-screen-label="FAQ" style="border-top: 1px solid rgba(255,255,255,.06)">
+  <div style="max-width: 860px; margin: 0 auto; padding: 96px 28px">
+    <div style="font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #E9A13B; margin-bottom: 14px">Preguntas frecuentes</div>
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 3.4vw, 38px); letter-spacing: -.02em; margin: 0 0 40px; font-weight: 700">Antes de escribirme</h2>
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <details style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 16px; padding: 20px 24px">
+        <summary style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; cursor: pointer">¿Las formaciones en IA sirven si mi equipo no sabe programar?</summary>
+        <p style="font-size: 15.5px; line-height: 1.65; color: #A6ADB8; margin: 14px 0 0">Sí — están diseñadas exactamente para eso. Mi especialidad es democratizar la IA Generativa para usuarios comunes: partimos de los flujos de trabajo reales de tu equipo, sin código.</p>
+      </details>
+      <details style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 16px; padding: 20px 24px">
+        <summary style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; cursor: pointer">¿Trabajas con empresas fuera de Colombia?</summary>
+        <p style="font-size: 15.5px; line-height: 1.65; color: #A6ADB8; margin: 14px 0 0">Sí, atiendo toda LATAM de forma remota. Fui Experto en Productos Google para LATAM durante 13 años: trabajar a distancia con equipos de toda la región es mi terreno natural.</p>
+      </details>
+      <details style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 16px; padding: 20px 24px">
+        <summary style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; cursor: pointer">¿Por qué no publicas precios?</summary>
+        <p style="font-size: 15.5px; line-height: 1.65; color: #A6ADB8; margin: 14px 0 0">Porque cada proyecto es distinto: no cuesta lo mismo un taller de un día que un programa de tres meses o un geoportal. En una llamada corta te doy un rango honesto sin compromiso.</p>
+      </details>
+      <details style="background: #171B22; border: 1px solid rgba(255,255,255,.07); border-radius: 16px; padding: 20px 24px">
+        <summary style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; cursor: pointer">¿Cuándo abren los cursos y la comunidad?</summary>
+        <p style="font-size: 15.5px; line-height: 1.65; color: #A6ADB8; margin: 14px 0 0">Estoy grabando los primeros cursos. La lista de espera recibe la fecha de lanzamiento primero (y la guía gratuita de inicio en IA). Mientras tanto, publico contenido gratis cada semana en YouTube.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACTO / CTA FINAL ══════════ -->
+<section id="contacto" data-screen-label="Contacto" style="border-top: 1px solid rgba(255,255,255,.06); background: radial-gradient(700px 400px at 50% 0%, rgba(233,161,59,.1), transparent 65%)">
+  <div style="max-width: 860px; margin: 0 auto; padding: 100px 28px 110px; text-align: center">
+    <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4.2vw, 50px); letter-spacing: -.025em; line-height: 1.08; margin: 0 0 18px; font-weight: 700">¿Listo para que la IA y tus datos trabajen para ti?</h2>
+    <p style="font-size: 17.5px; line-height: 1.6; color: #B9BFC9; max-width: 560px; margin: 0 auto 38px">Cuéntame tu caso por WhatsApp: te respondo personalmente y definimos en una llamada corta si puedo ayudarte.</p>
+    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px">
+      <a href="{{ waLink }}" target="_blank" rel="noopener" style="background: #E9A13B; color: #16130C; font-weight: 600; font-size: 17px; padding: 16px 32px; border-radius: 999px" style-hover="background: #F5B65C">Escribir por WhatsApp</a>
+      <a href="/cdn-cgi/l/email-protection#e4838196818a878d85a48e91858a878c8b978d8196968596ca878b89" style="border: 1px solid rgba(255,255,255,.18); color: #F1EEE7; font-weight: 600; font-size: 17px; padding: 16px 32px; border-radius: 999px" style-hover="border-color: #E9A13B; color: #E9A13B"><span class="__cf_email__" data-cfemail="eb8c8e998e8588828aab819e8a8588838498828e99998a99c5888486">[email&#160;protected]</span></a>
+    </div>
+    <div style="display: flex; gap: 22px; justify-content: center; font-size: 14px; font-weight: 500">
+      <a href="https://www.youtube.com/@JuanCarlosSierraR" target="_blank" rel="noopener" style="color: #8B92A0" style-hover="color: #E9A13B">YouTube</a>
+      <a href="https://www.linkedin.com/in/juanchosierrarseoysemygis/" target="_blank" rel="noopener" style="color: #8B92A0" style-hover="color: #E9A13B">LinkedIn</a>
+      <a href="https://x.com/juanchosierrar" target="_blank" rel="noopener" style="color: #8B92A0" style-hover="color: #E9A13B">X</a>
+      <a href="https://www.tiktok.com/@juanchosierrar" target="_blank" rel="noopener" style="color: #8B92A0" style-hover="color: #E9A13B">TikTok</a>
+      <a href="https://www.facebook.com/juanchosierrar" target="_blank" rel="noopener" style="color: #8B92A0" style-hover="color: #E9A13B">Facebook</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer style="border-top: 1px solid rgba(255,255,255,.07); background: #0C0F13">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 36px 28px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap">
+    <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px">Juancho<span style="color: #E9A13B">Sierra</span></div>
+    <div style="font-size: 13.5px; color: #6E7683">Consultor en IA, Datos y GIS · Colombia → LATAM</div>
+    <div style="font-size: 13.5px; color: #6E7683">© 2026 Juancho Sierra. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<!-- ══════════ WHATSAPP FLOTANTE ══════════ -->
+<a href="{{ waLink }}" target="_blank" rel="noopener" aria-label="Chatea por WhatsApp" style="position: fixed; bottom: 26px; right: 26px; z-index: 60; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(37,211,102,.35)" style-hover="transform: scale(1.08)">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#0B2E16"><path d="M12 2C6.5 2 2 6.4 2 11.8c0 2.1.7 4 1.8 5.6L2.5 22l4.7-1.2c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.4 10-9.8S17.5 2 12 2zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.1z"/></svg>
+</a>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;3214322340&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contacto&quot;,&quot;description&quot;:&quot;Número de WhatsApp con código de país, sin '+' (ej: 573001234567). Todos los botones y el chat flotante lo usan.&quot;}}">
+class Component extends DCLogic {
+  state = { enviado: false, nombre: '', email: '' };
+
+  waBase() {
+    let num = (this.props.whatsappNumber ?? '573001234567').replace(/[^0-9]/g, '');
+    if (num.length === 10 && num.startsWith('3')) num = '57' + num; // celular colombiano sin indicativo
+    return 'https://wa.me/' + num + '?text=';
+  }
+
+  renderVals() {
+    const wa = (msg) => this.waBase() + encodeURIComponent(msg);
+    return {
+      waLink: wa('Hola Juancho, vengo de tu web y quiero agendar una llamada.'),
+      waLinkFormacion: wa('Hola Juancho, me interesa una formación corporativa en IA para mi equipo.'),
+      waLinkMentoria: wa('Hola Juancho, quiero agendar una mentoría 1:1 en IA.'),
+      waLinkDashboards: wa('Hola Juancho, necesito un dashboard de datos para mi empresa.'),
+      waLinkGis: wa('Hola Juancho, tengo un proyecto GIS / de datos en campo.'),
+      waLinkAgentes: wa('Hola Juancho, me interesan los agentes de IA como servicio para mi negocio.'),
+      waLinkSaas: wa('Hola Juancho, quiero cotizar un desarrollo SaaS a la medida.'),
+      newsletterEnviado: this.state.enviado,
+      newsletterNoEnviado: !this.state.enviado,
+      newsletterNombre: this.state.nombre,
+      newsletterEmail: this.state.email,
+      onNombreChange: (e) => this.setState({ nombre: e.target.value }),
+      onEmailChange: (e) => this.setState({ email: e.target.value }),
+      onNewsletterSubmit: (e) => {
+        e.preventDefault();
+        if (!this.state.email) return;
+        this.setState({ enviado: true });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
