@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://juanchosierrar.com/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://juanchosierrar.com/Blog.dc.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://juanchosierrar.com/post.html?p=bienvenido-al-nuevo-blog</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>

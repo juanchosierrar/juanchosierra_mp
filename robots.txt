@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Protect admin and private areas
+Disallow: /admin.html
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://juanchosierrar.com/sitemap.xml
