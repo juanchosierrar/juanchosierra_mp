@@ -22,6 +22,8 @@ SITE = "https://juanchosierrar.com"
 SB_URL = "https://kliiibzabizzadhduhxw.supabase.co"
 SB_KEY = "sb_publishable__cQ8uYNpBBes0HYNn5hS2w_Ejag1f-1"  # clave pública (solo lee artículos publicados)
 OG_DEFAULT = f"{SITE}/img/og-juanchosierra.jpg"
+PAGINAS_SERVICIO = ["agentes-ia-a-medida.html", "gis-con-ia-agentica.html",
+                    "capacitacion-ia-sector-publico-educativo.html"]
 CATS = {"ia": "IA & Tech", "gis": "GIS y Mapas", "video": "Video Blog"}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
          "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
@@ -230,7 +232,9 @@ def pagina(p):
 
 
 def sitemap(posts):
-    urls = [(f"{SITE}/", None), (f"{SITE}/Blog.dc.html", posts[0]["updated_at"] if posts else None)]
+    urls = [(f"{SITE}/", None)]
+    urls += [(f"{SITE}/{pagina}", None) for pagina in PAGINAS_SERVICIO]
+    urls += [(f"{SITE}/Blog.dc.html", posts[0]["updated_at"] if posts else None)]
     urls += [(f"{SITE}/blog/{p['slug']}.html", p.get("updated_at") or p["created_at"]) for p in posts]
     filas = []
     for loc, mod in urls:
@@ -254,7 +258,7 @@ def main():
         if viejo.name not in vigentes:
             viejo.unlink()
     (ROOT / "sitemap.xml").write_text(sitemap(posts), encoding="utf-8")
-    print(f"{len(posts)} artículo(s) generados; sitemap con {len(posts) + 2} URL")
+    print(f"{len(posts)} artículo(s) generados; sitemap con {len(posts) + 2 + len(PAGINAS_SERVICIO)} URL")
 
 
 if __name__ == "__main__":
