@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página no encontrada | Juancho Sierra</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<script>
+  // Un artículo recién publicado puede tardar hasta una hora en tener su página
+  // estática (blog/slug.html). Mientras tanto, se muestra con post.html.
+  (function () {
+    var m = location.pathname.match(/^\/blog\/([a-z0-9-]+)\.html$/);
+    if (m) location.replace('/post.html?p=' + m[1]);
+  })();
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #101318; color: #F1EEE7; font-family: 'Instrument Sans', sans-serif; text-align: center; padding: 24px; box-sizing: border-box; }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 6vw, 52px); margin: 0 0 14px; letter-spacing: -.02em; }
+  p { color: #A6ADB8; font-size: 17px; margin: 0 0 32px; }
+  a { display: inline-block; margin: 0 6px 10px; padding: 13px 24px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+  .p { background: #E9A13B; color: #16130C; }
+  .s { border: 1px solid rgba(255,255,255,.18); color: #F1EEE7; }
+</style>
+</head>
+<body>
+  <main>
+    <h1>Esta página no existe</h1>
+    <p>Puede que el enlace haya cambiado o que el contenido ya no esté disponible.</p>
+    <a class="p" href="/">Ir al inicio</a>
+    <a class="s" href="/Blog.dc.html">Ver el blog</a>
+  </main>
+</body>
+</html>

@@ -1,0 +1,52 @@
+# Regenera las páginas estáticas del blog (blog/*.html) y el sitemap.xml
+# a partir de los artículos publicados en Supabase.
+# Corre cada hora y también se puede lanzar a mano desde la pestaña Actions
+# ("Actualizar blog y sitemap" → Run workflow) justo después de publicar.
+name: Actualizar blog y sitemap
+
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: blog-estatico
+  cancel-in-progress: false
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generar páginas y sitemap
+        run: python3 scripts/generar_blog.py
+
+      - name: Guardar cambios si hay artículos nuevos o editados
+        id: commit
+        run: |
+          git add -A blog sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Sin cambios en el blog."
+            echo "cambios=no" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Blog: actualizar páginas estáticas y sitemap"
+            git push
+            echo "cambios=si" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publicar en GitHub Pages
+        if: steps.commit.outputs.cambios == 'si'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "GitHub Pages publicará con el push."
